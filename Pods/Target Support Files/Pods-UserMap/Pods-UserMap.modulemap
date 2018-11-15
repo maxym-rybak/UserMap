@@ -1,0 +1,6 @@
+framework module Pods_UserMap {
+  umbrella header "Pods-UserMap-umbrella.h"
+
+  export *
+  module * { export * }
+}
