@@ -15,6 +15,11 @@
 		6F50F8B8219D2EED00408C7B /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8B7219D2EED00408C7B /* LogInViewController.swift */; };
 		6F50F8BA219D51DD00408C7B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8B9219D51DD00408C7B /* MapViewController.swift */; };
 		6F50F8BE219D8B6900408C7B /* UserListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8BD219D8B6900408C7B /* UserListTableViewController.swift */; };
+		6F50F8C0219E1EBC00408C7B /* LogInProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8BF219E1EBC00408C7B /* LogInProtocols.swift */; };
+		6F50F8CA219EA84700408C7B /* LogInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8C9219EA84700408C7B /* LogInPresenter.swift */; };
+		6F50F8CC219EA97200408C7B /* LogInRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8CB219EA97200408C7B /* LogInRouter.swift */; };
+		6F50F8CE219EA9E900408C7B /* LogInInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8CD219EA9E900408C7B /* LogInInteractor.swift */; };
+		6F50F8D0219EAA9B00408C7B /* LogInData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8CF219EAA9B00408C7B /* LogInData.swift */; };
 		E83A4AD463D6A0FBE4233507 /* Pods_UserMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580232EFBEC222884C8A304C /* Pods_UserMap.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +36,11 @@
 		6F50F8B7219D2EED00408C7B /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		6F50F8B9219D51DD00408C7B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		6F50F8BD219D8B6900408C7B /* UserListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewController.swift; sourceTree = "<group>"; };
+		6F50F8BF219E1EBC00408C7B /* LogInProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInProtocols.swift; sourceTree = "<group>"; };
+		6F50F8C9219EA84700408C7B /* LogInPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInPresenter.swift; sourceTree = "<group>"; };
+		6F50F8CB219EA97200408C7B /* LogInRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInRouter.swift; sourceTree = "<group>"; };
+		6F50F8CD219EA9E900408C7B /* LogInInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInInteractor.swift; sourceTree = "<group>"; };
+		6F50F8CF219EAA9B00408C7B /* LogInData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInData.swift; sourceTree = "<group>"; };
 		E1D9BB1CA2676B80A54C63B2 /* Pods-UserMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UserMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UserMap/Pods-UserMap.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,7 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				6F50F8A3219C960000408C7B /* AppDelegate.swift */,
-				6F50F8B7219D2EED00408C7B /* LogInViewController.swift */,
+				6F50F8C1219E1EFF00408C7B /* LogIn */,
 				6F50F8B9219D51DD00408C7B /* MapViewController.swift */,
 				6F50F8BD219D8B6900408C7B /* UserListTableViewController.swift */,
 				6F50F8A7219C960000408C7B /* Main.storyboard */,
@@ -95,6 +105,59 @@
 				6F50F8B5219C9EF900408C7B /* GoogleService-Info.plist */,
 			);
 			path = UserMap;
+			sourceTree = "<group>";
+		};
+		6F50F8C1219E1EFF00408C7B /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				6F50F8BF219E1EBC00408C7B /* LogInProtocols.swift */,
+				6F50F8C8219E21D600408C7B /* Entity */,
+				6F50F8C2219E217600408C7B /* View */,
+				6F50F8C6219E21B100408C7B /* Presenter */,
+				6F50F8C5219E21AB00408C7B /* Router */,
+				6F50F8C3219E218100408C7B /* Interactor */,
+			);
+			path = LogIn;
+			sourceTree = "<group>";
+		};
+		6F50F8C2219E217600408C7B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6F50F8B7219D2EED00408C7B /* LogInViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6F50F8C3219E218100408C7B /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				6F50F8CD219EA9E900408C7B /* LogInInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		6F50F8C5219E21AB00408C7B /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				6F50F8CB219EA97200408C7B /* LogInRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		6F50F8C6219E21B100408C7B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				6F50F8C9219EA84700408C7B /* LogInPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		6F50F8C8219E21D600408C7B /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				6F50F8CF219EAA9B00408C7B /* LogInData.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,8 +289,13 @@
 			files = (
 				6F50F8B8219D2EED00408C7B /* LogInViewController.swift in Sources */,
 				6F50F8BA219D51DD00408C7B /* MapViewController.swift in Sources */,
+				6F50F8CA219EA84700408C7B /* LogInPresenter.swift in Sources */,
 				6F50F8BE219D8B6900408C7B /* UserListTableViewController.swift in Sources */,
 				6F50F8A4219C960000408C7B /* AppDelegate.swift in Sources */,
+				6F50F8D0219EAA9B00408C7B /* LogInData.swift in Sources */,
+				6F50F8CC219EA97200408C7B /* LogInRouter.swift in Sources */,
+				6F50F8C0219E1EBC00408C7B /* LogInProtocols.swift in Sources */,
+				6F50F8CE219EA9E900408C7B /* LogInInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

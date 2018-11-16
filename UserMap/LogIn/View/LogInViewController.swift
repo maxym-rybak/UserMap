@@ -18,11 +18,21 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var isSignIn: Bool!
     
+    var presenter: LogInPresenterProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         activityIndicator.isHidden = true
         isSignIn = true
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning();
+    }
+
+}
+
+extension LogInViewController: LogInViewProtocol {
     
     @IBAction func logIn(_ sender: UIButton) {
         activityIndicator.isHidden = false
@@ -79,5 +89,25 @@ class LogInViewController: UIViewController {
         alertController.addAction(action)
         self.present(alertController, animated: true, completion: nil)
     }
-
 }
+
+//@IBOutlet var fruitTblView: UITableView!
+//
+//var presenter:FruitListPresenterProtocol?
+//var fruitList = [Fruit]()
+//
+//override func viewDidLoad() {
+//    super.viewDidLoad()
+//    FruitListWireframe.createFruitListModule(fruitListRef: self)
+//    presenter?.viewDidLoad()
+//}
+//
+//override func didReceiveMemoryWarning() {
+//    super.didReceiveMemoryWarning()
+//    // Dispose of any resources that can be recreated.
+//}
+//
+//func showFruits(with fruits: [Fruit]) {
+//    fruitList = fruits
+//    fruitTblView.reloadData()
+//}
