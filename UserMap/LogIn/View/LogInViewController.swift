@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 class LogInViewController: UIViewController {
 
@@ -17,58 +16,37 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var createNewUser: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var isSignIn: Bool!
-    
     var presenter: LogInPresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityIndicator.isHidden = true
-        isSignIn = true
+        LogInRouter.createLogInModule(logInViewRef: self)
+        hideActivityIndicator()
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning();
-    }
-
 }
 
 extension LogInViewController: LogInViewProtocol {
     
-    @IBAction func logIn(_ sender: UIButton) {
-        activityIndicator.isHidden = false
-        activityIndicator.startAnimating()
-        if isSignIn == true {
-            if let username = username.text, let password = password.text {
-                Auth.auth().signIn(withEmail: username, password: password, completion: {
-                    (user, error) in
-                    if error != nil {
-                        self.displayAlert(title: "error", message: error!.localizedDescription)
-                    } else {
-                        self.performSegue(withIdentifier: "segueToMap", sender: self)
-                    }
-                    self.activityIndicator.stopAnimating()
-                    self.activityIndicator.isHidden = true
-                } )
-            }
-        } else {
-            if let username = username.text, let password = password.text {
-                Auth.auth().createUser(withEmail: username, password: password, completion: {
-                    (user, error) in
-                    if error != nil {
-                        self.displayAlert(title: "error", message: error!.localizedDescription)
-                    } else {
-                        self.singUpInSwitch()
-                    }
-                    self.activityIndicator.stopAnimating()
-                    self.activityIndicator.isHidden = true
-                } )
+    @IBAction func signPressed(_ sender: UIButton) {
+        if let username = username.text, let password = password.text {
+            let userEnteredData = EnteredUserData(username: username, password: password)
+            if isSignIn == true {
+                presenter?.signInAttemp(userEnterData: userEnteredData)
+            } else {
+                presenter?.signUpAttemp(userEnterData: userEnteredData)
             }
         }
     }
     
-    
     @IBAction func createNewUserPressed(_ sender: UIButton) {
         singUpInSwitch()
+    }
+    
+    func displayAlert(title: String, message: String) {
+        let alertController = UIAlertController.init(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertController.addAction(action)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func singUpInSwitch () {
@@ -83,31 +61,14 @@ extension LogInViewController: LogInViewProtocol {
         }
     }
     
-    func displayAlert(title: String, message: String) {
-        let alertController = UIAlertController.init(title: title, message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        alertController.addAction(action)
-        self.present(alertController, animated: true, completion: nil)
+    func showActivityIndicator () {
+        activityIndicator.isHidden = false
+        isSignIn = false
     }
+    
+    func hideActivityIndicator () {
+        activityIndicator.isHidden = true
+        isSignIn = true
+    }
+    
 }
-
-//@IBOutlet var fruitTblView: UITableView!
-//
-//var presenter:FruitListPresenterProtocol?
-//var fruitList = [Fruit]()
-//
-//override func viewDidLoad() {
-//    super.viewDidLoad()
-//    FruitListWireframe.createFruitListModule(fruitListRef: self)
-//    presenter?.viewDidLoad()
-//}
-//
-//override func didReceiveMemoryWarning() {
-//    super.didReceiveMemoryWarning()
-//    // Dispose of any resources that can be recreated.
-//}
-//
-//func showFruits(with fruits: [Fruit]) {
-//    fruitList = fruits
-//    fruitTblView.reloadData()
-//}

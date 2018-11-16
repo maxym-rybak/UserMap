@@ -96,7 +96,7 @@
 			children = (
 				6F50F8A3219C960000408C7B /* AppDelegate.swift */,
 				6F50F8C1219E1EFF00408C7B /* LogIn */,
-				6F50F8B9219D51DD00408C7B /* MapViewController.swift */,
+				6F50F8D1219F263F00408C7B /* MapView */,
 				6F50F8BD219D8B6900408C7B /* UserListTableViewController.swift */,
 				6F50F8A7219C960000408C7B /* Main.storyboard */,
 				6F50F8AA219C960200408C7B /* Assets.xcassets */,
@@ -158,6 +158,14 @@
 				6F50F8CF219EAA9B00408C7B /* LogInData.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		6F50F8D1219F263F00408C7B /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				6F50F8B9219D51DD00408C7B /* MapViewController.swift */,
+			);
+			path = MapView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

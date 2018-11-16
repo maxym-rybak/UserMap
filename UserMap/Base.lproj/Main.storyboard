@@ -107,7 +107,7 @@
                                 <rect key="frame" x="164" y="140" width="47" height="30"/>
                                 <state key="normal" title="Sign In"/>
                                 <connections>
-                                    <action selector="logIn:" destination="UT6-eU-dSK" eventType="touchUpInside" id="T15-XS-hlL"/>
+                                    <action selector="signPressed:" destination="UT6-eU-dSK" eventType="touchUpInside" id="RiR-v8-H2m"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YPz-p3-pdF">

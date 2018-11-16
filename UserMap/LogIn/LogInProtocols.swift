@@ -6,18 +6,15 @@
 //  Copyright © 2018 Max Rybak. All rights reserved.
 //
 
-import Foundation
-
-/********************* ~Sample 2~ ****************************/
+import UIKit
 
 protocol LogInViewProtocol: class {
     // PRESENTER -> VIEW
-    
-    // Sign In, Sing up
-    // Alert
-    
-//    func showFruits(with fruits: [Fruit])
-    
+
+    func displayAlert(title: String, message: String)
+    func showActivityIndicator()
+    func hideActivityIndicator()
+    func singUpInSwitch ()
 }
 
 protocol LogInPresenterProtocol: class {
@@ -25,24 +22,27 @@ protocol LogInPresenterProtocol: class {
     var interactor: LogInInputInteractorProtocol? {get set}
     var view: LogInViewProtocol? {get set}
     var router: LogInRouterProtocol? {get set}
-//
-//    func viewDidLoad()
-//    func showFruitSelection(with fruit: Fruit, from view: UIViewController)
+    
+    func signInAttemp(userEnterData: EnteredUserData)
+    func signUpAttemp(userEnterData: EnteredUserData)
 }
 
 protocol LogInInputInteractorProtocol: class {
-//    var presenter: FruitListOutputInteractorProtocol? {get set}
+    var presenter: LogInOutputInteractorProtocol? {get set}
     //Presenter -> Interactor
-//    func getFruitList()
+    func signInRequest(userEnterData: EnteredUserData)
+    func signUpRequest(userEnterData: EnteredUserData)
 }
 
 protocol LogInOutputInteractorProtocol: class {
     //Interactor -> Presenter
-//    func fruitListDidFetch(fruitList: [Fruit])
+    func performLogIn()
+    func showError(error: Error)
+    func changeSingInToLogIn()
 }
 
 protocol LogInRouterProtocol: class {
-    //Presenter -> Wireframe
-//    func pushToFruitDetail(with fruit: Fruit,from view: UIViewController)
-//    static func createFruitListModule(fruitListRef: FruitListView)
+    //Presenter -> Router
+    func segueToMap(from view: LogInViewController)
+    static func createLogInModule(logInViewRef: LogInViewController)
 }

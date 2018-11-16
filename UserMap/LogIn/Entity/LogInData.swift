@@ -8,16 +8,12 @@
 
 import Foundation
 
-struct LogInData {
-    var name: String!
+struct EnteredUserData {
+    var username: String!
     var password: String!
     
-//    init(attributes: [String: String]) {
-//        self.name = attributes["name"]
-//        self.password = attributes["vitamin"]
-//    }
-    init(name: String, password: String) {
-        self.name = name
+    init(username: String, password: String) {
+        self.username = username
         self.password = password
     }
 }
