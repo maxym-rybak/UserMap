@@ -6,8 +6,6 @@
 //  Copyright © 2018 Max Rybak. All rights reserved.
 //
 
-import FirebaseDatabase
-
 class UserListPresenter: UserListPresenterProtocol {
     
     var interactor: UserListInputInteractorProtocol?
@@ -22,8 +20,8 @@ class UserListPresenter: UserListPresenterProtocol {
 
 extension UserListPresenter: UserListOutputInteractorProtocol {
     
-    func showUserList(userLocations: inout [DataSnapshot]) {
-        view?.showUsers(userLocations: &userLocations)
+    func showUserList(usernames: inout [String]) {
+        view?.showUsers(usernames: &usernames)
     }
     
 }

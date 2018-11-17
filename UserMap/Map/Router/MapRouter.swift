@@ -6,8 +6,6 @@
 //  Copyright © 2018 Max Rybak. All rights reserved.
 //
 
-import UIKit
-
 class MapRouter: MapRouterProtocol {
     
     static func configure(mapViewRef: MapViewController) {

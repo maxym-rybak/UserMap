@@ -7,8 +7,8 @@
 //
 
 struct EnteredUserData {
-    var username: String!
-    var password: String!
+    let username: String!
+    let password: String!
     
     init(username: String, password: String) {
         self.username = username

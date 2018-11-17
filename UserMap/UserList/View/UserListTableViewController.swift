@@ -7,13 +7,11 @@
 //
 
 import UIKit
-import FirebaseAuth
-import FirebaseDatabase
 
 class UserListTableViewController: UITableViewController {
     
     var presenter: UserListPresenterProtocol?
-    var userLocations: [DataSnapshot] = []
+    var usernames: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,17 +27,12 @@ class UserListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return userLocations.count
+        return usernames.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath)
-        let snapshot = userLocations[indexPath.row]
-        if let userDictionary = snapshot.value as? [String:AnyObject] {
-            if let email = userDictionary["email"] as? String {
-                cell.textLabel?.text = email
-            }
-        }
+        cell.textLabel?.text = usernames[indexPath.row]
         return cell
     }
     
@@ -47,8 +40,8 @@ class UserListTableViewController: UITableViewController {
 
 extension UserListTableViewController: UserListViewProtocol {
     
-    func showUsers(userLocations: inout [DataSnapshot]) {
-        self.userLocations = userLocations
+    func showUsers(usernames: inout [String]) {
+        self.usernames = usernames
         self.tableView.reloadData()
     }
 

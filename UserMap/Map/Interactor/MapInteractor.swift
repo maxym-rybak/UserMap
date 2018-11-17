@@ -8,7 +8,6 @@
 
 import FirebaseDatabase
 import FirebaseAuth
-import MapKit
 
 class MapInteractor: MapInputInteractorProtocol {
     
@@ -16,6 +15,7 @@ class MapInteractor: MapInputInteractorProtocol {
     
     var ref: DatabaseReference!
     var locationsFromFirebase: [DataSnapshot] = []
+    var allUsersCoords: [UserCoords] = []
     
     init() {
         ref = Database.database().reference()
@@ -26,19 +26,29 @@ class MapInteractor: MapInputInteractorProtocol {
         ref.child("UserLocation").observe(.childAdded) {
             (snapshot) in
             self.locationsFromFirebase.append(snapshot)
-            self.presenter?.createAnnotations(locationsFromFirebase: &self.locationsFromFirebase)
+            for elem in self.locationsFromFirebase {
+                if let userDictionary = elem.value as? [String:AnyObject] {
+                    if let email = userDictionary["email"] as? String
+                        , let lat = userDictionary["lat"] as? Double
+                        , let lon = userDictionary["lon"] as? Double {
+                        let newUser = UserCoords(username: email, lat: lat, lon: lon)
+                        self.allUsersCoords.append(newUser)
+                    }
+                }
+            }
+            self.presenter?.createAnnotations(locationsFromFirebase: &self.allUsersCoords)
         }
     }
     
-    func addUserToFirebase(userLocation: CLLocationCoordinate2D) {
+    func addUserToFirebase(userLocation: UserCoords) {
         if let email = Auth.auth().currentUser?.email , let userID = Auth.auth().currentUser?.uid {
-            let userDataDictionary : [String:Any] = ["email" : email, "lat" : userLocation.latitude, "lon" : userLocation.longitude]
+            let userDataDictionary : [String:Any] = ["email" : email, "lat" : userLocation.lat, "lon" : userLocation.lon]
             ref.child("UserLocation").child(userID).setValue(userDataDictionary)
         }
     }
     
     func updateMap() {
-        presenter?.createAnnotations(locationsFromFirebase: &locationsFromFirebase)
+        presenter?.createAnnotations(locationsFromFirebase: &allUsersCoords)
     }
     
 }

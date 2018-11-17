@@ -42,8 +42,8 @@ extension MapViewController: CLLocationManagerDelegate {
             map.setRegion(regior, animated: true)
             userLocation = center
             map.removeAnnotations(map.annotations)
-            
-            presenter?.addUserIntention(userLocation: userLocation)
+            let currentUser = UserCoords(username: "Default", lat: userLocation.latitude, lon: userLocation.longitude)
+            presenter?.addUserIntention(userLocation: currentUser)
             presenter?.mapUpdateIntention()
         }
     }
@@ -51,8 +51,15 @@ extension MapViewController: CLLocationManagerDelegate {
 
 extension MapViewController: MapViewProtocol {
     
-    func addAnnotationsToMap(annotations: inout [MKPointAnnotation]) {
-        map.addAnnotations(annotations)
+    func addAnnotationsToMap(userLocation: inout [UserCoords]) {
+        var allAnnotations = [MKPointAnnotation]()
+        for elem in userLocation {
+                let newAnnotation = MKPointAnnotation()
+                newAnnotation.coordinate = CLLocationCoordinate2D(latitude: elem.lat, longitude: elem.lon)
+                newAnnotation.title = elem.username
+                allAnnotations.append(newAnnotation)
+        }
+        map.addAnnotations(allAnnotations)
     }
     
 }

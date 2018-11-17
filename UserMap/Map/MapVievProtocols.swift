@@ -6,12 +6,9 @@
 //  Copyright © 2018 Max Rybak. All rights reserved.
 //
 
-import MapKit
-import Firebase
-
 protocol MapViewProtocol: class {
     // PRESENTER -> VIEW
-    func addAnnotationsToMap(annotations: inout [MKPointAnnotation])
+    func addAnnotationsToMap(userLocation: inout [UserCoords])
 }
 
 protocol MapPresenterProtocol: class {
@@ -20,20 +17,20 @@ protocol MapPresenterProtocol: class {
     var view: MapViewProtocol? {get set}
     var router: MapRouterProtocol? {get set}
     
-    func addUserIntention(userLocation: CLLocationCoordinate2D)
+    func addUserIntention(userLocation: UserCoords)
     func mapUpdateIntention()
 }
 
 protocol MapInputInteractorProtocol: class {
     var presenter: MapOutputInteractorProtocol? {get set}
     //Presenter -> Interactor
-    func addUserToFirebase(userLocation: CLLocationCoordinate2D)
+    func addUserToFirebase(userLocation: UserCoords)
     func updateMap()
 }
 
 protocol MapOutputInteractorProtocol: class {
     //Interactor -> Presenter
-    func createAnnotations(locationsFromFirebase: inout [DataSnapshot])
+    func createAnnotations(locationsFromFirebase: inout [UserCoords])
 }
 
 protocol MapRouterProtocol: class {
