@@ -28,13 +28,11 @@ class LogInPresenter: LogInPresenterProtocol {
 
 extension LogInPresenter: LogInOutputInteractorProtocol {
     func performLogIn() {
-        print("PERFORM LOG IN")
         view?.hideActivityIndicator()
         router?.segueToMap(from: self.view as! LogInViewController)
     }
     
     func showError(error: Error) {
-        print("SHOW ERROR WORKED")
         view?.hideActivityIndicator()
         view?.displayAlert(title: "error", message: (error.localizedDescription))
     }

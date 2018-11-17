@@ -6,8 +6,6 @@
 //  Copyright © 2018 Max Rybak. All rights reserved.
 //
 
-import Foundation
-
 struct EnteredUserData {
     var username: String!
     var password: String!

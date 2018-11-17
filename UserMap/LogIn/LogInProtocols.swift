@@ -44,5 +44,5 @@ protocol LogInOutputInteractorProtocol: class {
 protocol LogInRouterProtocol: class {
     //Presenter -> Router
     func segueToMap(from view: LogInViewController)
-    static func createLogInModule(logInViewRef: LogInViewController)
+    static func configure(logInViewRef: LogInViewController)
 }

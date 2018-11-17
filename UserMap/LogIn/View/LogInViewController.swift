@@ -10,18 +10,20 @@ import UIKit
 
 class LogInViewController: UIViewController {
 
+    var presenter: LogInPresenterProtocol?
+    
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var signIn: UIButton!
     @IBOutlet weak var createNewUser: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var isSignIn: Bool!
-    var presenter: LogInPresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        LogInRouter.createLogInModule(logInViewRef: self)
+        LogInRouter.configure(logInViewRef: self)
         hideActivityIndicator()
+        isSignIn = true
     }
 }
 
@@ -40,6 +42,7 @@ extension LogInViewController: LogInViewProtocol {
     
     @IBAction func createNewUserPressed(_ sender: UIButton) {
         singUpInSwitch()
+        hideActivityIndicator()
     }
     
     func displayAlert(title: String, message: String) {
@@ -63,12 +66,10 @@ extension LogInViewController: LogInViewProtocol {
     
     func showActivityIndicator () {
         activityIndicator.isHidden = false
-        isSignIn = false
     }
     
     func hideActivityIndicator () {
         activityIndicator.isHidden = true
-        isSignIn = true
     }
     
 }

@@ -14,14 +14,15 @@ class LogInRouter: LogInRouterProtocol {
          view.performSegue(withIdentifier: "segueToMap", sender: view)
     }
     
-    static func createLogInModule(logInViewRef: LogInViewController) {
+    static func configure(logInViewRef: LogInViewController) {
         let presenter: LogInPresenterProtocol & LogInOutputInteractorProtocol = LogInPresenter()
+        let interactor = LogInInteractor()
+        let router = LogInRouter()
         
         logInViewRef.presenter = presenter
-        logInViewRef.presenter?.router = LogInRouter()
-        logInViewRef.presenter?.interactor = LogInInteractor()
+        logInViewRef.presenter?.router = router
+        logInViewRef.presenter?.interactor = interactor
         logInViewRef.presenter?.view = logInViewRef
         logInViewRef.presenter?.interactor?.presenter = presenter
     }
-    
 }

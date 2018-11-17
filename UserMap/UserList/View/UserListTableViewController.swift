@@ -11,19 +11,15 @@ import FirebaseAuth
 import FirebaseDatabase
 
 class UserListTableViewController: UITableViewController {
-
-    var ref: DatabaseReference!
+    
+    var presenter: UserListPresenterProtocol?
     var userLocations: [DataSnapshot] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        ref = Database.database().reference()
-        ref.child("UserLocation").observe(.childAdded) {
-            (snapshot) in
-            self.userLocations.append(snapshot)
-            self.tableView.reloadData()
-        }
+        
+        UserListRouter.configure(userListViewRef: self)
+        presenter?.loadUsersAttemp()
     }
 
     // MARK: - Table view data source
@@ -47,4 +43,13 @@ class UserListTableViewController: UITableViewController {
         return cell
     }
     
+}
+
+extension UserListTableViewController: UserListViewProtocol {
+    
+    func showUsers(userLocations: inout [DataSnapshot]) {
+        self.userLocations = userLocations
+        self.tableView.reloadData()
+    }
+
 }

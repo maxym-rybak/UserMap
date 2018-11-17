@@ -6,12 +6,11 @@
 //  Copyright © 2018 Max Rybak. All rights reserved.
 //
 
-import UIKit
 import Firebase
 
 class LogInInteractor: LogInInputInteractorProtocol {
     
-    var presenter: LogInOutputInteractorProtocol?
+    weak var presenter: LogInOutputInteractorProtocol?
     
     func signInRequest(userEnterData: EnteredUserData) {
         Auth.auth().signIn(withEmail: userEnterData.username, password: userEnterData.password, completion: {

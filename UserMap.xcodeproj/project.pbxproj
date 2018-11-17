@@ -20,6 +20,14 @@
 		6F50F8CC219EA97200408C7B /* LogInRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8CB219EA97200408C7B /* LogInRouter.swift */; };
 		6F50F8CE219EA9E900408C7B /* LogInInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8CD219EA9E900408C7B /* LogInInteractor.swift */; };
 		6F50F8D0219EAA9B00408C7B /* LogInData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8CF219EAA9B00408C7B /* LogInData.swift */; };
+		6F50F8D8219F2B3700408C7B /* MapVievProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8D7219F2B3700408C7B /* MapVievProtocols.swift */; };
+		6F50F8DA219F2D1C00408C7B /* MapRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8D9219F2D1C00408C7B /* MapRouter.swift */; };
+		6F50F8DC219F2E8900408C7B /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8DB219F2E8900408C7B /* MapPresenter.swift */; };
+		6F50F8DE219F2F7800408C7B /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8DD219F2F7800408C7B /* MapInteractor.swift */; };
+		6F50F8E621A017FF00408C7B /* UserListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8E521A017FF00408C7B /* UserListProtocols.swift */; };
+		6F50F8E821A01BAD00408C7B /* UserListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8E721A01BAD00408C7B /* UserListRouter.swift */; };
+		6F50F8EA21A01C5400408C7B /* UserListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8E921A01C5400408C7B /* UserListPresenter.swift */; };
+		6F50F8EC21A01C9600408C7B /* UserListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8EB21A01C9600408C7B /* UserListInteractor.swift */; };
 		E83A4AD463D6A0FBE4233507 /* Pods_UserMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580232EFBEC222884C8A304C /* Pods_UserMap.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +49,14 @@
 		6F50F8CB219EA97200408C7B /* LogInRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInRouter.swift; sourceTree = "<group>"; };
 		6F50F8CD219EA9E900408C7B /* LogInInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInInteractor.swift; sourceTree = "<group>"; };
 		6F50F8CF219EAA9B00408C7B /* LogInData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInData.swift; sourceTree = "<group>"; };
+		6F50F8D7219F2B3700408C7B /* MapVievProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVievProtocols.swift; sourceTree = "<group>"; };
+		6F50F8D9219F2D1C00408C7B /* MapRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRouter.swift; sourceTree = "<group>"; };
+		6F50F8DB219F2E8900408C7B /* MapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
+		6F50F8DD219F2F7800408C7B /* MapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractor.swift; sourceTree = "<group>"; };
+		6F50F8E521A017FF00408C7B /* UserListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListProtocols.swift; sourceTree = "<group>"; };
+		6F50F8E721A01BAD00408C7B /* UserListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListRouter.swift; sourceTree = "<group>"; };
+		6F50F8E921A01C5400408C7B /* UserListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListPresenter.swift; sourceTree = "<group>"; };
+		6F50F8EB21A01C9600408C7B /* UserListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListInteractor.swift; sourceTree = "<group>"; };
 		E1D9BB1CA2676B80A54C63B2 /* Pods-UserMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UserMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UserMap/Pods-UserMap.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,8 +112,8 @@
 			children = (
 				6F50F8A3219C960000408C7B /* AppDelegate.swift */,
 				6F50F8C1219E1EFF00408C7B /* LogIn */,
-				6F50F8D1219F263F00408C7B /* MapView */,
-				6F50F8BD219D8B6900408C7B /* UserListTableViewController.swift */,
+				6F50F8D1219F263F00408C7B /* Map */,
+				6F50F8DF21A0171C00408C7B /* UserList */,
 				6F50F8A7219C960000408C7B /* Main.storyboard */,
 				6F50F8AA219C960200408C7B /* Assets.xcassets */,
 				6F50F8AC219C960200408C7B /* LaunchScreen.storyboard */,
@@ -160,12 +176,92 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
-		6F50F8D1219F263F00408C7B /* MapView */ = {
+		6F50F8D1219F263F00408C7B /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				6F50F8D7219F2B3700408C7B /* MapVievProtocols.swift */,
+				6F50F8D5219F291100408C7B /* View */,
+				6F50F8D4219F290100408C7B /* Presenter */,
+				6F50F8D3219F28F800408C7B /* Router */,
+				6F50F8D2219F28E200408C7B /* Interactor */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		6F50F8D2219F28E200408C7B /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				6F50F8DD219F2F7800408C7B /* MapInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		6F50F8D3219F28F800408C7B /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				6F50F8D9219F2D1C00408C7B /* MapRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		6F50F8D4219F290100408C7B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				6F50F8DB219F2E8900408C7B /* MapPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		6F50F8D5219F291100408C7B /* View */ = {
 			isa = PBXGroup;
 			children = (
 				6F50F8B9219D51DD00408C7B /* MapViewController.swift */,
 			);
-			path = MapView;
+			path = View;
+			sourceTree = "<group>";
+		};
+		6F50F8DF21A0171C00408C7B /* UserList */ = {
+			isa = PBXGroup;
+			children = (
+				6F50F8E521A017FF00408C7B /* UserListProtocols.swift */,
+				6F50F8E321A017BA00408C7B /* View */,
+				6F50F8E221A017A700408C7B /* Presenter */,
+				6F50F8E121A0176B00408C7B /* Router */,
+				6F50F8E021A0175A00408C7B /* Interactor */,
+			);
+			path = UserList;
+			sourceTree = "<group>";
+		};
+		6F50F8E021A0175A00408C7B /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				6F50F8EB21A01C9600408C7B /* UserListInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		6F50F8E121A0176B00408C7B /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				6F50F8E721A01BAD00408C7B /* UserListRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		6F50F8E221A017A700408C7B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				6F50F8E921A01C5400408C7B /* UserListPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		6F50F8E321A017BA00408C7B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6F50F8BD219D8B6900408C7B /* UserListTableViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,13 +393,21 @@
 			files = (
 				6F50F8B8219D2EED00408C7B /* LogInViewController.swift in Sources */,
 				6F50F8BA219D51DD00408C7B /* MapViewController.swift in Sources */,
+				6F50F8EC21A01C9600408C7B /* UserListInteractor.swift in Sources */,
 				6F50F8CA219EA84700408C7B /* LogInPresenter.swift in Sources */,
 				6F50F8BE219D8B6900408C7B /* UserListTableViewController.swift in Sources */,
 				6F50F8A4219C960000408C7B /* AppDelegate.swift in Sources */,
+				6F50F8EA21A01C5400408C7B /* UserListPresenter.swift in Sources */,
 				6F50F8D0219EAA9B00408C7B /* LogInData.swift in Sources */,
 				6F50F8CC219EA97200408C7B /* LogInRouter.swift in Sources */,
+				6F50F8DE219F2F7800408C7B /* MapInteractor.swift in Sources */,
 				6F50F8C0219E1EBC00408C7B /* LogInProtocols.swift in Sources */,
+				6F50F8E821A01BAD00408C7B /* UserListRouter.swift in Sources */,
+				6F50F8DA219F2D1C00408C7B /* MapRouter.swift in Sources */,
+				6F50F8D8219F2B3700408C7B /* MapVievProtocols.swift in Sources */,
 				6F50F8CE219EA9E900408C7B /* LogInInteractor.swift in Sources */,
+				6F50F8E621A017FF00408C7B /* UserListProtocols.swift in Sources */,
+				6F50F8DC219F2E8900408C7B /* MapPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
