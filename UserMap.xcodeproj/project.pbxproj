@@ -14,7 +14,6 @@
 		6F50F8B6219C9EF900408C7B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6F50F8B5219C9EF900408C7B /* GoogleService-Info.plist */; };
 		6F50F8B8219D2EED00408C7B /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8B7219D2EED00408C7B /* LogInViewController.swift */; };
 		6F50F8BA219D51DD00408C7B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8B9219D51DD00408C7B /* MapViewController.swift */; };
-		6F50F8BE219D8B6900408C7B /* UserListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8BD219D8B6900408C7B /* UserListTableViewController.swift */; };
 		6F50F8C0219E1EBC00408C7B /* LogInProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8BF219E1EBC00408C7B /* LogInProtocols.swift */; };
 		6F50F8CA219EA84700408C7B /* LogInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8C9219EA84700408C7B /* LogInPresenter.swift */; };
 		6F50F8CC219EA97200408C7B /* LogInRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8CB219EA97200408C7B /* LogInRouter.swift */; };
@@ -24,10 +23,6 @@
 		6F50F8DA219F2D1C00408C7B /* MapRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8D9219F2D1C00408C7B /* MapRouter.swift */; };
 		6F50F8DC219F2E8900408C7B /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8DB219F2E8900408C7B /* MapPresenter.swift */; };
 		6F50F8DE219F2F7800408C7B /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8DD219F2F7800408C7B /* MapInteractor.swift */; };
-		6F50F8E621A017FF00408C7B /* UserListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8E521A017FF00408C7B /* UserListProtocols.swift */; };
-		6F50F8E821A01BAD00408C7B /* UserListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8E721A01BAD00408C7B /* UserListRouter.swift */; };
-		6F50F8EA21A01C5400408C7B /* UserListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8E921A01C5400408C7B /* UserListPresenter.swift */; };
-		6F50F8EC21A01C9600408C7B /* UserListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8EB21A01C9600408C7B /* UserListInteractor.swift */; };
 		6F50F8EF21A02F6100408C7B /* UserCoords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8EE21A02F6100408C7B /* UserCoords.swift */; };
 		E83A4AD463D6A0FBE4233507 /* Pods_UserMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580232EFBEC222884C8A304C /* Pods_UserMap.framework */; };
 /* End PBXBuildFile section */
@@ -44,7 +39,6 @@
 		6F50F8B5219C9EF900408C7B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6F50F8B7219D2EED00408C7B /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		6F50F8B9219D51DD00408C7B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		6F50F8BD219D8B6900408C7B /* UserListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewController.swift; sourceTree = "<group>"; };
 		6F50F8BF219E1EBC00408C7B /* LogInProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInProtocols.swift; sourceTree = "<group>"; };
 		6F50F8C9219EA84700408C7B /* LogInPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInPresenter.swift; sourceTree = "<group>"; };
 		6F50F8CB219EA97200408C7B /* LogInRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInRouter.swift; sourceTree = "<group>"; };
@@ -54,10 +48,6 @@
 		6F50F8D9219F2D1C00408C7B /* MapRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRouter.swift; sourceTree = "<group>"; };
 		6F50F8DB219F2E8900408C7B /* MapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
 		6F50F8DD219F2F7800408C7B /* MapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractor.swift; sourceTree = "<group>"; };
-		6F50F8E521A017FF00408C7B /* UserListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListProtocols.swift; sourceTree = "<group>"; };
-		6F50F8E721A01BAD00408C7B /* UserListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListRouter.swift; sourceTree = "<group>"; };
-		6F50F8E921A01C5400408C7B /* UserListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListPresenter.swift; sourceTree = "<group>"; };
-		6F50F8EB21A01C9600408C7B /* UserListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListInteractor.swift; sourceTree = "<group>"; };
 		6F50F8EE21A02F6100408C7B /* UserCoords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoords.swift; sourceTree = "<group>"; };
 		E1D9BB1CA2676B80A54C63B2 /* Pods-UserMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UserMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UserMap/Pods-UserMap.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,7 +105,6 @@
 				6F50F8A3219C960000408C7B /* AppDelegate.swift */,
 				6F50F8C1219E1EFF00408C7B /* LogIn */,
 				6F50F8D1219F263F00408C7B /* Map */,
-				6F50F8DF21A0171C00408C7B /* UserList */,
 				6F50F8A7219C960000408C7B /* Main.storyboard */,
 				6F50F8AA219C960200408C7B /* Assets.xcassets */,
 				6F50F8AC219C960200408C7B /* LaunchScreen.storyboard */,
@@ -219,50 +208,6 @@
 			isa = PBXGroup;
 			children = (
 				6F50F8B9219D51DD00408C7B /* MapViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		6F50F8DF21A0171C00408C7B /* UserList */ = {
-			isa = PBXGroup;
-			children = (
-				6F50F8E521A017FF00408C7B /* UserListProtocols.swift */,
-				6F50F8E321A017BA00408C7B /* View */,
-				6F50F8E221A017A700408C7B /* Presenter */,
-				6F50F8E121A0176B00408C7B /* Router */,
-				6F50F8E021A0175A00408C7B /* Interactor */,
-			);
-			path = UserList;
-			sourceTree = "<group>";
-		};
-		6F50F8E021A0175A00408C7B /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				6F50F8EB21A01C9600408C7B /* UserListInteractor.swift */,
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
-		6F50F8E121A0176B00408C7B /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				6F50F8E721A01BAD00408C7B /* UserListRouter.swift */,
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
-		6F50F8E221A017A700408C7B /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				6F50F8E921A01C5400408C7B /* UserListPresenter.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		6F50F8E321A017BA00408C7B /* View */ = {
-			isa = PBXGroup;
-			children = (
-				6F50F8BD219D8B6900408C7B /* UserListTableViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -404,21 +349,16 @@
 			files = (
 				6F50F8B8219D2EED00408C7B /* LogInViewController.swift in Sources */,
 				6F50F8BA219D51DD00408C7B /* MapViewController.swift in Sources */,
-				6F50F8EC21A01C9600408C7B /* UserListInteractor.swift in Sources */,
 				6F50F8CA219EA84700408C7B /* LogInPresenter.swift in Sources */,
 				6F50F8EF21A02F6100408C7B /* UserCoords.swift in Sources */,
-				6F50F8BE219D8B6900408C7B /* UserListTableViewController.swift in Sources */,
 				6F50F8A4219C960000408C7B /* AppDelegate.swift in Sources */,
-				6F50F8EA21A01C5400408C7B /* UserListPresenter.swift in Sources */,
 				6F50F8D0219EAA9B00408C7B /* LogInData.swift in Sources */,
 				6F50F8CC219EA97200408C7B /* LogInRouter.swift in Sources */,
 				6F50F8DE219F2F7800408C7B /* MapInteractor.swift in Sources */,
 				6F50F8C0219E1EBC00408C7B /* LogInProtocols.swift in Sources */,
-				6F50F8E821A01BAD00408C7B /* UserListRouter.swift in Sources */,
 				6F50F8DA219F2D1C00408C7B /* MapRouter.swift in Sources */,
 				6F50F8D8219F2B3700408C7B /* MapVievProtocols.swift in Sources */,
 				6F50F8CE219EA9E900408C7B /* LogInInteractor.swift in Sources */,
-				6F50F8E621A017FF00408C7B /* UserListProtocols.swift in Sources */,
 				6F50F8DC219F2E8900408C7B /* MapPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,6 +6,8 @@
 //  Copyright © 2018 Max Rybak. All rights reserved.
 //
 
+import UIKit
+
 class MapRouter: MapRouterProtocol {
     
     static func configure(mapViewRef: MapViewController) {
@@ -19,5 +21,10 @@ class MapRouter: MapRouterProtocol {
         mapViewRef.presenter?.view = mapViewRef
         mapViewRef.presenter?.interactor?.presenter = presenter
     }
-
+    
+    func logOut(from view: MapViewController) {
+        UserDefaults.standard.set(false, forKey: "isLoggedIn")
+        UserDefaults.standard.synchronize()
+        view.performSegue(withIdentifier: "segueToLogIn", sender: self)
+    }
 }

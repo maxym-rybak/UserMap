@@ -11,6 +11,8 @@ import UIKit
 class LogInRouter: LogInRouterProtocol {
     
     func segueToMap(from view: LogInViewController) {
+        UserDefaults.standard.set(true, forKey: "isLoggedIn")
+        UserDefaults.standard.synchronize()
          view.performSegue(withIdentifier: "segueToMap", sender: view)
     }
     

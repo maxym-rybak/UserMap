@@ -9,6 +9,7 @@
 protocol MapViewProtocol: class {
     // PRESENTER -> VIEW
     func addAnnotationsToMap(userLocation: inout [UserCoords])
+    func userListOpenClose()
 }
 
 protocol MapPresenterProtocol: class {
@@ -19,6 +20,8 @@ protocol MapPresenterProtocol: class {
     
     func addUserIntention(userLocation: UserCoords)
     func mapUpdateIntention()
+    func makeLogOutIntention()
+    func userListOpenCloseIntention()
 }
 
 protocol MapInputInteractorProtocol: class {
@@ -35,5 +38,6 @@ protocol MapOutputInteractorProtocol: class {
 
 protocol MapRouterProtocol: class {
     //Presenter -> Router
+    func logOut(from view: MapViewController)
     static func configure(mapViewRef: MapViewController)
 }

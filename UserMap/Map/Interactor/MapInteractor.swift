@@ -32,7 +32,9 @@ class MapInteractor: MapInputInteractorProtocol {
                         , let lat = userDictionary["lat"] as? Double
                         , let lon = userDictionary["lon"] as? Double {
                         let newUser = UserCoords(username: email, lat: lat, lon: lon)
-                        self.allUsersCoords.append(newUser)
+                        if self.allUsersCoords.contains(where: { $0.username == newUser.username }) == false {
+                            self.allUsersCoords.append(newUser)
+                        }
                     }
                 }
             }

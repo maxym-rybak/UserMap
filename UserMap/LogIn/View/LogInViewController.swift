@@ -21,9 +21,17 @@ class LogInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         LogInRouter.configure(logInViewRef: self)
         hideActivityIndicator()
         isSignIn = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.bool(forKey: "isLoggedIn") == true {
+            presenter?.router?.segueToMap(from: self)
+//            performSegue(withIdentifier: "segueToMap", sender: view)
+        }
     }
 }
 

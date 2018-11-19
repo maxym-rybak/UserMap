@@ -21,6 +21,13 @@ class MapPresenter: MapPresenterProtocol {
         interactor?.updateMap()
     }
     
+    func makeLogOutIntention() {
+        router?.logOut(from: view as! MapViewController)
+    }
+    
+    func userListOpenCloseIntention() {
+        view?.userListOpenClose()
+    }
 }
 
 extension MapPresenter: MapOutputInteractorProtocol {
