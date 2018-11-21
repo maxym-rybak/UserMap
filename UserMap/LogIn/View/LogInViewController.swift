@@ -75,17 +75,31 @@ extension LogInViewController: LogInViewProtocol {
     }
     
     func singUpInSwitch () {
-        if isSignIn == true {
-            signIn.setTitle("SIGN UP", for: .normal)
-            createNewUser.setTitle("Log In", for: .normal)
-            passConfirmationView.isHidden = false
-            isSignIn = false
-        } else {
-            signIn.setTitle("LOGIN", for: .normal)
-            createNewUser.setTitle("Register", for: .normal)
-            passConfirmationView.isHidden = true
-            isSignIn = true
+        UIView.animate(withDuration: 0.6) {
+            if self.isSignIn == true {
+                self.signIn.setTitle("SIGN UP", for: .normal)
+                self.createNewUser.setTitle("Log In", for: .normal)
+                self.passConfirmationView.isHidden = false
+                self.isSignIn = false
+            } else {
+                self.signIn.setTitle("LOGIN", for: .normal)
+                self.createNewUser.setTitle("Register", for: .normal)
+                self.passConfirmationView.isHidden = true
+                self.isSignIn = true
+            }
         }
+//        if isSignIn == true {
+//            signIn.setTitle("SIGN UP", for: .normal)
+//            createNewUser.setTitle("Log In", for: .normal)
+//            passConfirmationView.isHidden = false
+//            isSignIn = false
+//        } else {
+//
+//            signIn.setTitle("LOGIN", for: .normal)
+//            createNewUser.setTitle("Register", for: .normal)
+//            passConfirmationView.isHidden = true
+//            isSignIn = true
+//        }
     }
     
     func showActivityIndicator () {
