@@ -87,6 +87,7 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath)
         if let username = allUsers?[indexPath.row].username {
             cell.textLabel?.text = username
+            cell.textLabel?.textColor = .white
         }
         return cell
     }

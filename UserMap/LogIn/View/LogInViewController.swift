@@ -14,9 +14,12 @@ class LogInViewController: UIViewController {
     
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var passwordConfirmation: UITextField!
     @IBOutlet weak var signIn: UIButton!
     @IBOutlet weak var createNewUser: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var passConfirmationView: UIView!
+    
     var isSignIn: Bool!
     
     override func viewDidLoad() {
@@ -25,12 +28,18 @@ class LogInViewController: UIViewController {
         LogInRouter.configure(logInViewRef: self)
         hideActivityIndicator()
         isSignIn = true
+        username.attributedPlaceholder = NSAttributedString(string: "Email",
+                                                               attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        password.attributedPlaceholder = NSAttributedString(string: "Password",
+                                                               attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        passwordConfirmation.attributedPlaceholder = NSAttributedString(string: "Confirm Password",
+                                                            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        passConfirmationView.isHidden = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
         if UserDefaults.standard.bool(forKey: "isLoggedIn") == true {
             presenter?.router?.segueToMap(from: self)
-//            performSegue(withIdentifier: "segueToMap", sender: view)
         }
     }
 }
@@ -43,7 +52,12 @@ extension LogInViewController: LogInViewProtocol {
             if isSignIn == true {
                 presenter?.signInAttemp(userEnterData: userEnteredData)
             } else {
-                presenter?.signUpAttemp(userEnterData: userEnteredData)
+                if let passConfirm = passwordConfirmation.text,
+                    password == passConfirm {
+                    presenter?.signUpAttemp(userEnterData: userEnteredData)
+                } else {
+                    displayAlert(title: "Error", message: "Passwords don't match")
+                }
             }
         }
     }
@@ -62,12 +76,14 @@ extension LogInViewController: LogInViewProtocol {
     
     func singUpInSwitch () {
         if isSignIn == true {
-            signIn.setTitle("Sign Up", for: .normal)
-            createNewUser.setTitle("Switch to Log In", for: .normal)
+            signIn.setTitle("SIGN UP", for: .normal)
+            createNewUser.setTitle("Log In", for: .normal)
+            passConfirmationView.isHidden = false
             isSignIn = false
         } else {
-            signIn.setTitle("Sing In", for: .normal)
-            createNewUser.setTitle("Create new user", for: .normal)
+            signIn.setTitle("LOGIN", for: .normal)
+            createNewUser.setTitle("Register", for: .normal)
+            passConfirmationView.isHidden = true
             isSignIn = true
         }
     }
