@@ -8,8 +8,8 @@
 
 import UIKit
 
-class LogInViewController: UIViewController {
-
+class LogInViewController: UIViewController, UITextFieldDelegate {
+    
     var presenter: LogInPresenterProtocol?
     
     @IBOutlet weak var username: UITextField!
@@ -20,27 +20,45 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var passConfirmationView: UIView!
     
-    var isSignIn: Bool!
+    // Value checks before UI change to login/registration
+    var isSignIn: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         LogInRouter.configure(logInViewRef: self)
+        setUpUI()
+        self.hideKeyboardWhenTappedAround()
+    }
+    
+    func setUpUI() {
         hideActivityIndicator()
-        isSignIn = true
-        username.attributedPlaceholder = NSAttributedString(string: "Email",
-                                                               attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        password.attributedPlaceholder = NSAttributedString(string: "Password",
-                                                               attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        passwordConfirmation.attributedPlaceholder = NSAttributedString(string: "Confirm Password",
-                                                            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        setUpCustomPlaceHolders()
         passConfirmationView.isHidden = true
+        // Texfield delegates to hide keyboard on "Return" pressed
+        username.delegate = self
+        password.delegate = self
+        passwordConfirmation.delegate = self
+    }
+    
+    func setUpCustomPlaceHolders() {
+        username.attributedPlaceholder = NSAttributedString(string: "Email",
+                                                            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        password.attributedPlaceholder = NSAttributedString(string: "Password",
+                                                            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        passwordConfirmation.attributedPlaceholder = NSAttributedString(string: "Confirm Password",
+                                                                        attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
     }
     
     override func viewDidAppear(_ animated: Bool) {
         if UserDefaults.standard.bool(forKey: "isLoggedIn") == true {
             presenter?.router?.segueToMap(from: self)
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 }
 
@@ -88,18 +106,6 @@ extension LogInViewController: LogInViewProtocol {
                 self.isSignIn = true
             }
         }
-//        if isSignIn == true {
-//            signIn.setTitle("SIGN UP", for: .normal)
-//            createNewUser.setTitle("Log In", for: .normal)
-//            passConfirmationView.isHidden = false
-//            isSignIn = false
-//        } else {
-//
-//            signIn.setTitle("LOGIN", for: .normal)
-//            createNewUser.setTitle("Register", for: .normal)
-//            passConfirmationView.isHidden = true
-//            isSignIn = true
-//        }
     }
     
     func showActivityIndicator () {
@@ -109,5 +115,6 @@ extension LogInViewController: LogInViewProtocol {
     func hideActivityIndicator () {
         activityIndicator.isHidden = true
     }
+    
     
 }

@@ -8,9 +8,10 @@
 
 import UIKit
 import MapKit
+import FirebaseAuth
 
 class MapViewController: UIViewController {
-
+    
     var presenter: MapPresenterProtocol?
     var allUsers: [UserCoords]?
     
@@ -23,9 +24,38 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         MapRouter.configure(mapViewRef: self)
-        initLocationManager()
+        
+        checkLocationServises()
         tableView.dataSource = self
         self.tableView.isHidden = true
+    }
+    
+    // TODO: checkLocationServises(), checkLocationAuthorisation()
+    func checkLocationServises() {
+        if CLLocationManager.locationServicesEnabled() {
+            initLocationManager()
+            checkLocationAuthorisation()
+            // set up location manager
+        } else {
+            // show warning
+        }
+    }
+    
+    func checkLocationAuthorisation() {
+        switch CLLocationManager.authorizationStatus() {
+        case .authorizedWhenInUse :
+            // do map stuff
+            break
+        case .denied :
+            break
+        case .notDetermined :
+            locationManager.requestWhenInUseAuthorization()
+        case .restricted :
+            // show alert
+            break
+        case .authorizedAlways :
+            break
+        }
     }
     
     @IBAction func logOutPressed(_ sender: UIBarButtonItem) {
@@ -58,7 +88,12 @@ extension MapViewController: CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
+        map.showsUserLocation = true
         locationManager.startUpdatingLocation()
+    }
+    
+    func locationManagerDidPauseLocationUpdates(_ manager: CLLocationManager) {
+        manager.stopUpdatingHeading()
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -67,10 +102,10 @@ extension MapViewController: CLLocationManagerDelegate {
             let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.3, longitudeDelta: 0.3))
             map.setRegion(region, animated: true)
             userLocation = center
-            map.removeAnnotations(map.annotations)
             let currentUser = UserCoords(username: "Default", lat: userLocation.latitude, lon: userLocation.longitude)
             presenter?.addUserIntention(userLocation: currentUser)
             presenter?.mapUpdateIntention()
+            manager.stopUpdatingLocation()
         }
     }
     
@@ -95,17 +130,20 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension MapViewController: MapViewProtocol {
-
+    
     // MARK: MapViewProtocol fuctions
     func addAnnotationsToMap(userLocation: inout [UserCoords]) {
         allUsers = userLocation
         var allAnnotations = [MKPointAnnotation]()
         for elem in userLocation {
+            if elem.username != Auth.auth().currentUser?.email {
                 let newAnnotation = MKPointAnnotation()
                 newAnnotation.coordinate = CLLocationCoordinate2D(latitude: elem.lat, longitude: elem.lon)
                 newAnnotation.title = elem.username
                 allAnnotations.append(newAnnotation)
+            }
         }
+        map.removeAnnotations(map.annotations)
         map.addAnnotations(allAnnotations)
     }
     

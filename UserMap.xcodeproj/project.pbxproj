@@ -24,7 +24,8 @@
 		6F50F8DC219F2E8900408C7B /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8DB219F2E8900408C7B /* MapPresenter.swift */; };
 		6F50F8DE219F2F7800408C7B /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8DD219F2F7800408C7B /* MapInteractor.swift */; };
 		6F50F8EF21A02F6100408C7B /* UserCoords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F8EE21A02F6100408C7B /* UserCoords.swift */; };
-		6FB2E4F321A5B2A600EDCE7D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB2E4F221A5B2A600EDCE7D /* UIViewExtension.swift */; };
+		6F71B2DB222443A70022A2FE /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F71B2DA222443A70022A2FE /* UIViewController+Extension.swift */; };
+		6FB2E4F321A5B2A600EDCE7D /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB2E4F221A5B2A600EDCE7D /* UIView+Extension.swift */; };
 		E83A4AD463D6A0FBE4233507 /* Pods_UserMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580232EFBEC222884C8A304C /* Pods_UserMap.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,7 +51,8 @@
 		6F50F8DB219F2E8900408C7B /* MapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
 		6F50F8DD219F2F7800408C7B /* MapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractor.swift; sourceTree = "<group>"; };
 		6F50F8EE21A02F6100408C7B /* UserCoords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoords.swift; sourceTree = "<group>"; };
-		6FB2E4F221A5B2A600EDCE7D /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		6F71B2DA222443A70022A2FE /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		6FB2E4F221A5B2A600EDCE7D /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		E1D9BB1CA2676B80A54C63B2 /* Pods-UserMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UserMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UserMap/Pods-UserMap.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,7 +106,8 @@
 		6F50F8A2219C960000408C7B /* UserMap */ = {
 			isa = PBXGroup;
 			children = (
-				6F50F8A3219C960000408C7B /* AppDelegate.swift */,
+				6F50F8A7219C960000408C7B /* Main.storyboard */,
+				6F71B2D92224434C0022A2FE /* App */,
 				6FA24371221B4186008E80F8 /* Extensions */,
 				6F50F8C1219E1EFF00408C7B /* LogIn */,
 				6F50F8D1219F263F00408C7B /* Map */,
@@ -219,10 +222,19 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		6F71B2D92224434C0022A2FE /* App */ = {
+			isa = PBXGroup;
+			children = (
+				6F50F8A3219C960000408C7B /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		6FA24371221B4186008E80F8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				6FB2E4F221A5B2A600EDCE7D /* UIViewExtension.swift */,
+				6FB2E4F221A5B2A600EDCE7D /* UIView+Extension.swift */,
+				6F71B2DA222443A70022A2FE /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -230,7 +242,6 @@
 		6FA24372221B41C6008E80F8 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				6F50F8A7219C960000408C7B /* Main.storyboard */,
 				6F50F8AA219C960200408C7B /* Assets.xcassets */,
 				6F50F8AC219C960200408C7B /* LaunchScreen.storyboard */,
 				6F50F8AF219C960200408C7B /* Info.plist */,
@@ -369,8 +380,9 @@
 				6F50F8B8219D2EED00408C7B /* LogInViewController.swift in Sources */,
 				6F50F8BA219D51DD00408C7B /* MapViewController.swift in Sources */,
 				6F50F8CA219EA84700408C7B /* LogInPresenter.swift in Sources */,
+				6F71B2DB222443A70022A2FE /* UIViewController+Extension.swift in Sources */,
 				6F50F8EF21A02F6100408C7B /* UserCoords.swift in Sources */,
-				6FB2E4F321A5B2A600EDCE7D /* UIViewExtension.swift in Sources */,
+				6FB2E4F321A5B2A600EDCE7D /* UIView+Extension.swift in Sources */,
 				6F50F8A4219C960000408C7B /* AppDelegate.swift in Sources */,
 				6F50F8D0219EAA9B00408C7B /* LogInData.swift in Sources */,
 				6F50F8CC219EA97200408C7B /* LogInRouter.swift in Sources */,
